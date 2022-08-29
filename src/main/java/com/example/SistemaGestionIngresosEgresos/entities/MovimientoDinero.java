@@ -1,20 +1,24 @@
-package com.example.web.services;
-
+package com.example.SistemaGestionIngresosEgresos.entities;
 
 public class MovimientoDinero {
 
     // se definen las propiedades
     private float monto;
     private String concepto;
-    private String usuario;
+    private Empleado empleado;
 
 
     // se definen los constructores
-    public MovimientoDinero(float monto, String concepto, String usuario) {
-        this.monto = monto;
+
+
+    public MovimientoDinero() {
     }
 
-
+    public MovimientoDinero(float monto, String concepto, Empleado empleado) {
+        this.monto = monto;
+        this.concepto = concepto;
+        this.empleado = empleado;
+    }
 
     // se definen los genters y setters
     public float getMonto() {
@@ -33,11 +37,11 @@ public class MovimientoDinero {
         this.concepto = concepto;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 }
