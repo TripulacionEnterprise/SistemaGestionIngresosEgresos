@@ -1,16 +1,30 @@
 package com.example.SistemaGestionIngresosEgresos.entities;
 
-public class Empleado {
+import javax.persistence.*;
+
+//Se hace el cambio  de nombre de la clase
+//Ya  no se llamara Empledo sino Usuario
+//Para saeguir con el desarrollo del proyecto web
+//@harrison
+@Entity
+@Table(name = "Usuario")
+public class Usuario {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "nombre")
         private String nombre;
+        @Column(name = "correo")
         private String correo;
 
-        private Empresa empresa;
+        @Column(name = "empresa")
+        private String empresa;
+        @Column(name = "rol")
         private String rol;
 
-    public Empleado() {
+    public Usuario() {
     }
 
-    public Empleado(String nombre, String correo, Empresa empresa, String rol) {
+    public Usuario(String nombre, String correo, Empresa empresa, String rol) {
         this.nombre = nombre;
         this.correo = correo;
         this.empresa = empresa;

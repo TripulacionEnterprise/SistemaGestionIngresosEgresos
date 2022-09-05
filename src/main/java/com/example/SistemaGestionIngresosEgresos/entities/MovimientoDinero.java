@@ -5,7 +5,7 @@ public class MovimientoDinero {
     // se definen las propiedades
     private float monto;
     private String concepto;
-    private Empleado empleado;
+    private Usuario usuario;
 
 
     // se definen los constructores
@@ -14,10 +14,10 @@ public class MovimientoDinero {
     public MovimientoDinero() {
     }
 
-    public MovimientoDinero(float monto, String concepto, Empleado empleado) {
+    public MovimientoDinero(float monto, String concepto, Usuario usuario) {
         this.monto = monto;
         this.concepto = concepto;
-        this.empleado = empleado;
+        this.usuario = usuario;
     }
 
     // se definen los genters y setters
@@ -37,11 +37,11 @@ public class MovimientoDinero {
         this.concepto = concepto;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public Usuario getEmpleado() {
+        return usuario;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setEmpleado(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

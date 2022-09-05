@@ -1,6 +1,6 @@
 package com.example.SistemaGestionIngresosEgresos;
 
-import com.example.SistemaGestionIngresosEgresos.entities.Empleado;
+import com.example.SistemaGestionIngresosEgresos.entities.Usuario;
 import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
 import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
 import org.springframework.boot.SpringApplication;
@@ -17,28 +17,28 @@ public class SistemaGestionIngresosEgresosApplication {
 		empresa1.setDireccion("USA");
 		empresa1.setTelefono("+1 1234654645");
 		empresa1.setNit("665464654-0");
-		Empleado empleado1 = new Empleado();
+		Usuario usuario1 = new Usuario();
 
-		empleado1.setNombre("pedro perez");
-		empleado1.setCorreo("benjamin25@gmail.com");
-		empleado1.setRol("administrador");
-		empleado1.setEmpresa(empresa1);
+		usuario1.setNombre("pedro perez");
+		usuario1.setCorreo("benjamin25@gmail.com");
+		usuario1.setRol("administrador");
+		usuario1.setEmpresa(empresa1);
 
 		MovimientoDinero movimientoDinero1 = new MovimientoDinero();
 		movimientoDinero1.setConcepto("Ingreso");
 		movimientoDinero1.setMonto(321000000);
-		movimientoDinero1.setEmpleado(empleado1);
+		movimientoDinero1.setEmpleado(usuario1);
 
-		System.out.println(empleado1.getNombre() + " " + empleado1.getCorreo() + " " + empresa1.getNombre() + " " + empleado1.getRol());
+		System.out.println(usuario1.getNombre() + " " + usuario1.getCorreo() + " " + empresa1.getNombre() + " " + usuario1.getRol());
 
-		empleado1.setNombre("tomas Galeano");
-		empleado1.setCorreo("tomas125_@hotmail.com");
+		usuario1.setNombre("tomas Galeano");
+		usuario1.setCorreo("tomas125_@hotmail.com");
 		empresa1.setNombre("Enterprise ");
-		empleado1.setRol("operativo");
+		usuario1.setRol("operativo");
 
-		System.out.println(empleado1.getNombre() + ", " + empleado1.getCorreo() + ", " + empresa1.getNombre() + ", " + empleado1.getRol());
-		Empleado empleado2 = new Empleado("juan gabriel", "juan67@hotmail.com", empresa1, "operativo");
-		System.out.println(empleado2.getNombre() + ", " + empleado2.getCorreo() + ", " + empresa1.getNombre() + ", " + empleado2.getRol());
+		System.out.println(usuario1.getNombre() + ", " + usuario1.getCorreo() + ", " + empresa1.getNombre() + ", " + usuario1.getRol());
+		Usuario usuario2 = new Usuario("juan gabriel", "juan67@hotmail.com", empresa1, "operativo");
+		System.out.println(usuario2.getNombre() + ", " + usuario2.getCorreo() + ", " + empresa1.getNombre() + ", " + usuario2.getRol());
 
 
 	}
