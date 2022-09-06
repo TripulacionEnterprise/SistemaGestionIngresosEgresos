@@ -2,6 +2,9 @@ package com.example.SistemaGestionIngresosEgresos.entities;
 
 public class Empresa {
 
+
+
+    private int id;
     private String nombre;
     private String direccion;
     private String telefono;
@@ -15,6 +18,14 @@ public class Empresa {
         this.direccion = direccion;
         this.telefono = telefono;
         this.nit = nit;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
