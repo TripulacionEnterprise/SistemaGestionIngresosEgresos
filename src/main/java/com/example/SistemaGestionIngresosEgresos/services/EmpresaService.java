@@ -10,11 +10,13 @@ import java.util.Optional;
 @Service
 public class EmpresaService {
 
-    //---- Se define las propiedades -------//
+    //----------------- Definicion de dependencias ------------------------//
+
+        //---- Se define las propiedades -------//
     private IEmpresaRepository empresaRepository;
 
 
-    //---- Se define el constructor para la inyeccion de dependencias -------//
+        //---- Se define el constructor para la inyeccion de dependencias -------//
 
     public EmpresaService(IEmpresaRepository rep){
         this.empresaRepository=rep;
