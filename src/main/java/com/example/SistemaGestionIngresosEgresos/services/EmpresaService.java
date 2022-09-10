@@ -1,7 +1,7 @@
 package com.example.SistemaGestionIngresosEgresos.services;
 
 import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
-import com.example.SistemaGestionIngresosEgresos.respositories.IEmpresaRepository;
+import com.example.SistemaGestionIngresosEgresos.repositories.IEmpresaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

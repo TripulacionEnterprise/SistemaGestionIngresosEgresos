@@ -1,4 +1,4 @@
-package com.example.SistemaGestionIngresosEgresos.respositories;
+package com.example.SistemaGestionIngresosEgresos.repositories;
 
 import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
 import org.springframework.data.jpa.repository.JpaRepository;
