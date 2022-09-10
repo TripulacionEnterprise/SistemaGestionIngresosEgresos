@@ -1,6 +1,11 @@
 package com.example.SistemaGestionIngresosEgresos.services;
 
+import com.example.SistemaGestionIngresosEgresos.entities.Usuario;
+import com.example.SistemaGestionIngresosEgresos.repositories.IUsuarioRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {

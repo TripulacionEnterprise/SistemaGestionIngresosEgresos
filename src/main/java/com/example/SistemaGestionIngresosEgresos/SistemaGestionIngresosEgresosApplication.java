@@ -1,5 +1,6 @@
 package com.example.SistemaGestionIngresosEgresos;
 
+import com.example.SistemaGestionIngresosEgresos.entities.RolEnum;
 import com.example.SistemaGestionIngresosEgresos.entities.Usuario;
 import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
 import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
@@ -12,6 +13,7 @@ public class SistemaGestionIngresosEgresosApplication {
 	public static void main(String[] args) {
 		//SpringApplication.run(SistemaGestionIngresosEgresosApplication.class, args);
 
+		/*
 		Empresa empresa1 = new Empresa();
 		empresa1.setNombre("Oracle Inc");
 		empresa1.setDireccion("USA");
@@ -21,7 +23,7 @@ public class SistemaGestionIngresosEgresosApplication {
 
 		usuario1.setNombre("pedro perez");
 		usuario1.setCorreo("benjamin25@gmail.com");
-		usuario1.setRol("administrador");
+		usuario1.setRol(RolEnum.ADMINISTRADOR);
 		usuario1.setEmpresa(empresa1);
 
 		MovimientoDinero movimientoDinero1 = new MovimientoDinero();
@@ -34,12 +36,12 @@ public class SistemaGestionIngresosEgresosApplication {
 		usuario1.setNombre("tomas Galeano");
 		usuario1.setCorreo("tomas125_@hotmail.com");
 		empresa1.setNombre("Enterprise ");
-		usuario1.setRol("operativo");
+		usuario1.setRol(RolEnum.OPERADOR);
 
 		System.out.println(usuario1.getNombre() + ", " + usuario1.getCorreo() + ", " + empresa1.getNombre() + ", " + usuario1.getRol());
-		Usuario usuario2 = new Usuario("juan gabriel", "juan67@hotmail.com", empresa1, "operativo");
+		Usuario usuario2 = new Usuario("juan gabriel", "juan67@hotmail.com", empresa1, RolEnum.OPERADOR);
 		System.out.println(usuario2.getNombre() + ", " + usuario2.getCorreo() + ", " + empresa1.getNombre() + ", " + usuario2.getRol());
-
+		*/
 
 	}
 }
