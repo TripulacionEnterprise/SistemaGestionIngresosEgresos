@@ -10,6 +10,7 @@ import java.util.Optional;
 @Service
 public class EmpresaService {
 
+    /*
     //----------------- Definicion de dependencias ------------------------//
 
         //---- Se define las propiedades -------//
@@ -23,13 +24,14 @@ public class EmpresaService {
     }
 
 
-
     //------------- Se definen los metodos--------------------///
+
 
         //------metodo para obtener todas las empresas------///
     public ArrayList<Empresa> selectAll(){
         return (ArrayList<Empresa>) this.empresaRepository.findAll();
     }
+
 
 
        //----- metodo para obtener empresa por ID------------//
@@ -115,8 +117,7 @@ public class EmpresaService {
     }
 
 
-
-
+ */
 
 
 }

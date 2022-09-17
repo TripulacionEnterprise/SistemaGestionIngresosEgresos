@@ -10,6 +10,7 @@ import java.util.Optional;
 @Service
 public class UsuarioService {
 
+    /*
     //Definiendo propiedades
 
     private IUsuarioRepository usuarioRepository;
@@ -109,4 +110,7 @@ public class UsuarioService {
             return response;
         }
     }
+
+
+     */
 }

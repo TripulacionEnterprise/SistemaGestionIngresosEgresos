@@ -7,13 +7,15 @@ import java.util.Date;
 //Ya  no se llamara Empleado sino Usuario
 //Para seguir con el desarrollo del proyecto web
 //@harrison
+/*
 @Entity
 @Table(name = "user",
     indexes = {
         @Index(name = "uniqueIndex", columnList = "email", unique = true)
     }
-)
+)*/
 public class Usuario {
+       /*
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
@@ -132,7 +134,12 @@ public class Usuario {
     public void setActualizadoEn(Date actualizadoEn) {
         this.actualizadoEn = actualizadoEn;
     }
+
+
+        */
 }
+
+
 
 
 
