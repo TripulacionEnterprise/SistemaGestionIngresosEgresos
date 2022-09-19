@@ -88,10 +88,11 @@ public class EmpresaService {
             existe.setTelefono(data.getTelefono());
         }
 
+        /*
         if(data.getNit()!= null){
             existe.setNit(data.getNit());
         }
-
+        */
         this.empresaRepository.save(existe);
         response.setCode(200);
         response.setMessage("Empresa actualizada exitosamente");

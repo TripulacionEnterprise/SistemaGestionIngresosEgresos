@@ -54,9 +54,12 @@ public class EnterpriseController {
         if(newEmpresa.getTelefono().equals(null) || newEmpresa.getTelefono().equals("")){
             return new RedirectView("/enterprises/error");
         }
+        /*
         if(newEmpresa.getNit().equals(null) || newEmpresa.getNit().equals("")){
             return new RedirectView("/enterprises/error");
         }
+
+         */
         if(newEmpresa.getDireccion().equals(null) || newEmpresa.getDireccion().equals("")){
             return new RedirectView("/enterprises/error");
         }

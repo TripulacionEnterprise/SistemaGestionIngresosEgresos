@@ -4,10 +4,10 @@ package com.example.SistemaGestionIngresosEgresos.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "empresa"/*,
+@Table(name = "empresa",
         indexes = {
                 @Index(name = "uniqueIndex", columnList = "email", unique = true)
-        }*/
+        }
 )
 public class Empresa {
 
@@ -20,17 +20,23 @@ public class Empresa {
     private String direccion;
     @Column(name = "phone")
     private String telefono;
-    @Column(name = "nit")
-    private String nit;
+    @Column(name = "email")
+    private String correo;
+    @ManyToOne
+    @JoinColumn(name = "enterpriseid")
+    private Usuario usuario;
+    @ManyToOne
+    @JoinColumn(name = "transactionid")
+    private MovimientoDinero movimientoDinero;
 
-    public Empresa() {
-    }
-
-    public Empresa(String nombre, String direccion, String telefono, String nit) {
+    public Empresa(int id, String nombre, String direccion, String telefono, String correo, Usuario usuario, MovimientoDinero movimientoDinero) {
+        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.nit = nit;
+        this.correo = correo;
+        this.usuario = usuario;
+        this.movimientoDinero = movimientoDinero;
     }
 
     public int getId() {
@@ -65,11 +71,27 @@ public class Empresa {
         this.telefono = telefono;
     }
 
-    public String getNit() {
-        return nit;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setNit(String nit) {
-        this.nit = nit;
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public MovimientoDinero getMovimientoDinero() {
+        return movimientoDinero;
+    }
+
+    public void setMovimientoDinero(MovimientoDinero movimientoDinero) {
+        this.movimientoDinero = movimientoDinero;
     }
 }

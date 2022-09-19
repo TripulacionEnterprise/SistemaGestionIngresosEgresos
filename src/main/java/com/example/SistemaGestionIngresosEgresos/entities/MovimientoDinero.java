@@ -1,26 +1,36 @@
 package com.example.SistemaGestionIngresosEgresos.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "transaction")
 public class MovimientoDinero {
 
     // se definen las propiedades
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "amount")
     private float monto;
+    @Column(name = "concept")
     private String concepto;
-    private Usuario usuario;
-
 
     // se definen los constructores
 
-
-    public MovimientoDinero() {
-    }
-
-    public MovimientoDinero(float monto, String concepto, Usuario usuario) {
+    public MovimientoDinero(int id, float monto, String concepto) {
+        this.id = id;
         this.monto = monto;
         this.concepto = concepto;
-        this.usuario = usuario;
     }
 
-    // se definen los genters y setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public float getMonto() {
         return monto;
     }
@@ -35,13 +45,5 @@ public class MovimientoDinero {
 
     public void setConcepto(String concepto) {
         this.concepto = concepto;
-    }
-
-    public Usuario getEmpleado() {
-        return usuario;
-    }
-
-    public void setEmpleado(Usuario usuario) {
-        this.usuario = usuario;
     }
 }

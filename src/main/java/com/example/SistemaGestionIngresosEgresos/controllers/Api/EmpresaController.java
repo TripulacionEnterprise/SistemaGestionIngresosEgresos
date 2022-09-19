@@ -11,7 +11,6 @@ import java.util.ArrayList;
 @RestController
 public class EmpresaController {
 
-    /*
     //----------------- Definicion de dependencias ------------------------//
 
     //---- Se define la propiedad para uso del services------//
@@ -21,10 +20,14 @@ public class EmpresaController {
     public EmpresaController(EmpresaService service){
         this.empresaService = service;
     }
-    */
-
 
     //----- Para las peticiones GET-------//
+    @RequestMapping("enterprises")
+    public ArrayList<Empresa> getEmpresas() {
+        return this.empresaService.selectAll();
+    }
+    //----- Para las peticiones GET-------//
+    /*
     @RequestMapping("enterprises")
     public Response getEmpresas() {
         Response response =new Response();
@@ -32,6 +35,7 @@ public class EmpresaController {
         response.setCode(200);
         return response;
     }
+     */
 
     @RequestMapping("enterprises/{id}")
     public Response getEmpresa(@PathVariable int id){
