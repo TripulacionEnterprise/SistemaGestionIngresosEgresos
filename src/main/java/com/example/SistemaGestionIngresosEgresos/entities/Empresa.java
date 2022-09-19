@@ -1,11 +1,26 @@
 package com.example.SistemaGestionIngresosEgresos.entities;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "empresa"/*,
+        indexes = {
+                @Index(name = "uniqueIndex", columnList = "email", unique = true)
+        }*/
+)
 public class Empresa {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "name")
     private String nombre;
+    @Column(name = "address")
     private String direccion;
+    @Column(name = "phone")
     private String telefono;
+    @Column(name = "nit")
     private String nit;
 
     public Empresa() {

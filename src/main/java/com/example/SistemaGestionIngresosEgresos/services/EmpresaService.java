@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class EmpresaService {
 
-    /*
+
     //----------------- Definicion de dependencias ------------------------//
 
         //---- Se define las propiedades -------//
@@ -117,7 +117,7 @@ public class EmpresaService {
     }
 
 
- */
+
 
 
 }
