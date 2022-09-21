@@ -20,12 +20,25 @@ public class EmpresaService {
     }
     //------------- Se definen los metodos--------------------///
     //------metodo para obtener todas las empresas------///
-    public ArrayList<Empresa> apiGetEmpresas(){
+    public ArrayList<Empresa> getEmpresas(){
         return (ArrayList<Empresa>) this.empresaRepository.findAll();
     }
 
-    public Empresa apiCreateEmpresa(Empresa newEmpresa) {
-        return this.empresaRepository.save(newEmpresa);
+
+    //------ metodo para crear Empresa-----------//
+    public Response createEmpresa(Empresa data){
+        Response response = new Response();
+        try {
+            this.empresaRepository.save(data);
+            response.setCode(200);
+            response.setMessage("Empresa registrada exitosamente");
+            return response;
+        }
+        catch (Exception ex){
+            response.setCode(500);
+            response.setMessage("Error" + ex.getMessage());
+            return  response;
+        }
     }
     public String webGetEmpresas(){
         return "Hola mundo";
@@ -45,13 +58,8 @@ public class EmpresaService {
 
     }
 
-        //------ metodo para crear Empresa-----------//
-    public Response createEmpresa(Empresa data){
-        Response response =new Response();
-        this.empresaRepository.save(data);
-        response.setCode(200);
-        response.setMessage("Empresa registrada exitosamente");
-        return response;
+
+
     }
 
         //---- metodo para actualizar Empresa------//
