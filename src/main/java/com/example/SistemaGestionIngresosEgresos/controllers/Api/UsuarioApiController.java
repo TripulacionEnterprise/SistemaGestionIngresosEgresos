@@ -1,15 +1,11 @@
 package com.example.SistemaGestionIngresosEgresos.controllers.Api;
 
 import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
-import com.example.SistemaGestionIngresosEgresos.entities.Usuario;
 import com.example.SistemaGestionIngresosEgresos.services.Response;
-import com.example.SistemaGestionIngresosEgresos.services.UsuarioService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-
 @RestController
-public class UsuarioController {
+public class UsuarioApiController {
 
 
     //----- Para las peticiones GET-------//
@@ -64,7 +60,7 @@ public class UsuarioController {
     /*
     private UsuarioService usuarioService;
 
-    public UsuarioController(UsuarioService usuarioService) {
+    public UsuarioApiController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 

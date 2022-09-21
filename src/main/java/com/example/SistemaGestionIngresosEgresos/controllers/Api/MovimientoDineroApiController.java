@@ -4,7 +4,7 @@ import com.example.SistemaGestionIngresosEgresos.services.Response;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class MovimientoDineroController{
+public class MovimientoDineroApiController {
 
 
     @GetMapping("enterprises/{id}/movements")

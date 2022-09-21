@@ -9,25 +9,33 @@ public class MovimientoDinero {
     // se definen las propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @Column(name = "amount")
     private float monto;
     @Column(name = "concept")
     private String concepto;
+    @ManyToOne
+    @JoinColumn(name = "userid")
+    private Usuario usuario;
+    @ManyToOne
+    @JoinColumn(name = "enterpriseid")
+    private Empresa empresa;
 
     // se definen los constructores
 
-    public MovimientoDinero(int id, float monto, String concepto) {
+    public MovimientoDinero(long id, float monto, String concepto, Usuario usuario, Empresa empresa) {
         this.id = id;
         this.monto = monto;
         this.concepto = concepto;
+        this.usuario = usuario;
+        this.empresa = empresa;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,5 +53,21 @@ public class MovimientoDinero {
 
     public void setConcepto(String concepto) {
         this.concepto = concepto;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }

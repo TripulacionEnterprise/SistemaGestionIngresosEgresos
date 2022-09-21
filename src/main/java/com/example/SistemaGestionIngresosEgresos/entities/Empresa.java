@@ -4,7 +4,7 @@ package com.example.SistemaGestionIngresosEgresos.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "empresa",
+@Table(name = "enterprise",
         indexes = {
                 @Index(name = "uniqueIndex", columnList = "email", unique = true)
         }
@@ -13,7 +13,7 @@ public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @Column(name = "name")
     private String nombre;
     @Column(name = "address")
@@ -22,28 +22,23 @@ public class Empresa {
     private String telefono;
     @Column(name = "email")
     private String correo;
-    @ManyToOne
-    @JoinColumn(name = "enterpriseid")
-    private Usuario usuario;
-    @ManyToOne
-    @JoinColumn(name = "transactionid")
-    private MovimientoDinero movimientoDinero;
 
-    public Empresa(int id, String nombre, String direccion, String telefono, String correo, Usuario usuario, MovimientoDinero movimientoDinero) {
+    public Empresa() {
+    }
+
+    public Empresa(long id, String nombre, String direccion, String telefono, String correo) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
-        this.usuario = usuario;
-        this.movimientoDinero = movimientoDinero;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -77,21 +72,5 @@ public class Empresa {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public MovimientoDinero getMovimientoDinero() {
-        return movimientoDinero;
-    }
-
-    public void setMovimientoDinero(MovimientoDinero movimientoDinero) {
-        this.movimientoDinero = movimientoDinero;
     }
 }

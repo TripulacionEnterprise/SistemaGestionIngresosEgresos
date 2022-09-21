@@ -17,7 +17,7 @@ import java.util.Date;
 public class Usuario {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id;
+        private long id;
         @Column(name = "email")
         private String correo;
         @Column(name = "name")
@@ -26,24 +26,20 @@ public class Usuario {
         private String telefono;
         @Column(name = "rol")
         private RolEnum rol;
-        @ManyToOne
-        @JoinColumn(name = "transactionid")
-        private MovimientoDinero movimientoDinero;
 
-    public Usuario(int id, String correo, String nombre, String telefono, RolEnum rol, MovimientoDinero movimientoDinero) {
+    public Usuario(long id, String correo, String nombre, String telefono, RolEnum rol) {
         this.id = id;
         this.correo = correo;
         this.nombre = nombre;
         this.telefono = telefono;
         this.rol = rol;
-        this.movimientoDinero = movimientoDinero;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -77,14 +73,6 @@ public class Usuario {
 
     public void setRol(RolEnum rol) {
         this.rol = rol;
-    }
-
-    public MovimientoDinero getMovimientoDinero() {
-        return movimientoDinero;
-    }
-
-    public void setMovimientoDinero(MovimientoDinero movimientoDinero) {
-        this.movimientoDinero = movimientoDinero;
     }
 }
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-public class EmpresaController {
+public class EmpresaApiController {
 
     //----------------- Definicion de dependencias ------------------------//
 
@@ -17,26 +17,21 @@ public class EmpresaController {
     private EmpresaService empresaService;
 
     //- Se define el constructor para la inyeccion de dependencias-//
-    public EmpresaController(EmpresaService service){
+    public EmpresaApiController(EmpresaService service){
         this.empresaService = service;
     }
 
     //----- Para las peticiones GET-------//
-    @RequestMapping("enterprises")
-    public ArrayList<Empresa> getEmpresas() {
-        return this.empresaService.selectAll();
+    @RequestMapping("/api/enterprises")
+    public ArrayList<Empresa> apiGetEmpresas() {
+        return this.empresaService.apiGetEmpresas();
     }
-    //----- Para las peticiones GET-------//
-    /*
-    @RequestMapping("enterprises")
-    public Response getEmpresas() {
-        Response response =new Response();
-        response.setMessage("satisfactorio");
-        response.setCode(200);
-        return response;
+    @PostMapping("/api/enterprises")
+    public Empresa apiCreateEmpresa(@RequestBody Empresa newEmpresa) {
+        return this.empresaService.apiCreateEmpresa(newEmpresa);
     }
-     */
 
+    /*
     @RequestMapping("enterprises/{id}")
     public Response getEmpresa(@PathVariable int id){
         Response response =new Response();

@@ -3,6 +3,7 @@ package com.example.SistemaGestionIngresosEgresos.services;
 import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
 import com.example.SistemaGestionIngresosEgresos.repositories.IEmpresaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -10,32 +11,29 @@ import java.util.Optional;
 @Service
 public class EmpresaService {
 
-
     //----------------- Definicion de dependencias ------------------------//
-
-        //---- Se define las propiedades -------//
+    //---- Se define las propiedades -------//
     private IEmpresaRepository empresaRepository;
-
-
-        //---- Se define el constructor para la inyeccion de dependencias -------//
-
-    public EmpresaService(IEmpresaRepository rep){
-        this.empresaRepository=rep;
+    //---- Se define el constructor para la inyeccion de dependencias -------//
+    public EmpresaService(IEmpresaRepository repository){
+        this.empresaRepository=repository;
     }
-
-
     //------------- Se definen los metodos--------------------///
-
-
-        //------metodo para obtener todas las empresas------///
-    public ArrayList<Empresa> selectAll(){
+    //------metodo para obtener todas las empresas------///
+    public ArrayList<Empresa> apiGetEmpresas(){
         return (ArrayList<Empresa>) this.empresaRepository.findAll();
     }
 
+    public Empresa apiCreateEmpresa(Empresa newEmpresa) {
+        return this.empresaRepository.save(newEmpresa);
+    }
+    public String webGetEmpresas(){
+        return "Hola mundo";
+    }
 
-
+/*
        //----- metodo para obtener empresa por ID------------//
-    public Empresa selectById(int Id){
+    public Empresa selectById(long Id){
         Optional<Empresa> existe = this.empresaRepository.findById(Id);
 
         if(existe.isPresent()){
@@ -92,7 +90,7 @@ public class EmpresaService {
         if(data.getNit()!= null){
             existe.setNit(data.getNit());
         }
-        */
+
         this.empresaRepository.save(existe);
         response.setCode(200);
         response.setMessage("Empresa actualizada exitosamente");
@@ -102,7 +100,7 @@ public class EmpresaService {
     }
 
         //---- metodo para eliminar Empresa------//
-    public Response deleteEmpresaById(int Id){
+    public Response deleteEmpresaById(long Id){
         Response response = new Response();
         try {
             this.empresaRepository.deleteById(Id);
@@ -117,8 +115,5 @@ public class EmpresaService {
         }
     }
 
-
-
-
-
+ */
 }
