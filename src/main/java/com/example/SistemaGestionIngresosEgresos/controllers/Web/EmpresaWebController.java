@@ -30,7 +30,7 @@ public class EmpresaWebController {
 
     @RequestMapping("/web/enterprises")
     public String webGetEmpresas(Model modelo){
-        ArrayList<Empresa> empresas = this.empresaService.apiGetEmpresas();
+        ArrayList<Empresa> empresas = this.empresaService.getEmpresas();
         modelo.addAttribute("empresas", empresas);
         return "empresa/index";
     }
@@ -41,7 +41,6 @@ public class EmpresaWebController {
     public String webCreateEmpresa(){
         return "empresa/create";
     }
-    /*
     //------ Metodo para guardar una empresa---Retorna una Respuesta------///
     @PostMapping("/web/enterprises/store")
     public RedirectView webStoreEmpresa(Empresa newEmpresa){
@@ -63,7 +62,7 @@ public class EmpresaWebController {
         }
 
         Empresa empresa = newEmpresa;
-        Response response = this.empresaService.apiCreateEmpresa(empresa);
+        Response response = this.empresaService.createEmpresa(empresa);
 
         if(response.getCode() == 200){
             return new RedirectView("/web/enterprises/success");
@@ -78,7 +77,11 @@ public class EmpresaWebController {
         return "empresa/error";
     }
 
-     */
+    @GetMapping("/web/enterprises/success")
+    public String success(){
+        return "empresa/success";
+    }
+
 /*
     @GetMapping("enterprises")
     public String index(Model enterprises){
@@ -97,10 +100,6 @@ public class EmpresaWebController {
 
 
 
-    @GetMapping("enterprises/success")
-    public String success(){
-        return "Empresa/success";
-    }
 
 
  */

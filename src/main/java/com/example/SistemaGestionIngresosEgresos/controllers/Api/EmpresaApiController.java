@@ -24,11 +24,11 @@ public class EmpresaApiController {
     //----- Para las peticiones GET-------//
     @RequestMapping("/api/enterprises")
     public ArrayList<Empresa> apiGetEmpresas() {
-        return this.empresaService.apiGetEmpresas();
+        return this.empresaService.getEmpresas();
     }
     @PostMapping("/api/enterprises")
-    public Empresa apiCreateEmpresa(@RequestBody Empresa newEmpresa) {
-        return this.empresaService.apiCreateEmpresa(newEmpresa);
+    public Response apiCreateEmpresa(@RequestBody Empresa newEmpresa) {
+        return this.empresaService.createEmpresa(newEmpresa);
     }
 
     /*
