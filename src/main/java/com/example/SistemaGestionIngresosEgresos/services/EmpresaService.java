@@ -18,6 +18,10 @@ public class EmpresaService {
     public EmpresaService(IEmpresaRepository repository){
         this.empresaRepository=repository;
     }
+
+
+
+
     //------------- Se definen los metodos--------------------///
     //------metodo para obtener todas las empresas------///
     public ArrayList<Empresa> apiGetEmpresas(){

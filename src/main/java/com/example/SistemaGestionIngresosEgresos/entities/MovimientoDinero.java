@@ -21,6 +21,9 @@ public class MovimientoDinero {
     @JoinColumn(name = "enterpriseid")
     private Empresa empresa;
 
+    @Column(name="fecha")
+    private String fecha;
+
     // se definen los constructores
 
     public MovimientoDinero(long id, float monto, String concepto, Usuario usuario, Empresa empresa) {
@@ -30,6 +33,7 @@ public class MovimientoDinero {
         this.usuario = usuario;
         this.empresa = empresa;
     }
+
 
     public long getId() {
         return id;
@@ -63,11 +67,20 @@ public class MovimientoDinero {
         this.usuario = usuario;
     }
 
+
     public Empresa getEmpresa() {
         return empresa;
     }
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
