@@ -1,10 +1,7 @@
 package com.example.SistemaGestionIngresosEgresos.controllers.Web;
 
-<<<<<<< HEAD
-import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
 import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
-import com.example.SistemaGestionIngresosEgresos.services.EmpresaService;
-import com.example.SistemaGestionIngresosEgresos.services.MovimientoService;
+import com.example.SistemaGestionIngresosEgresos.services.MovimientoDineroService;
 import com.example.SistemaGestionIngresosEgresos.services.Response;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MovimientoDineroWebController {
@@ -20,52 +18,53 @@ public class MovimientoDineroWebController {
     //----------------- Definicion de dependencias ------------------------//
 
     //---- Se define la propiedad para uso del services------//
-    private MovimientoService movimientoService;
+    private MovimientoDineroService movimientoDineroService;
 
     //- Se define el constructor para la inyeccion de dependencias-//
-    public MovimientoDineroWebController(MovimientoService service){
-        this.movimientoService= service;
+    public MovimientoDineroWebController(MovimientoDineroService service){
+        this.movimientoDineroService = service;
     }
 
-    @GetMapping ("/web/movimientos")
+    @GetMapping ("/web/transactions")
     public String index(Model model){
-        ArrayList<MovimientoDinero> movimientos = this.movimientoService.getMovimientos();
-        model.addAttribute("movimientos",movimientos);
+        model.addAttribute("movimientos",this.movimientoDineroService.getMovimientoDinero());
         return "movimiento/index";
     }
 
 
-    @GetMapping("/web/movimientos/create")
-    public String webCreateMovimiento(){
+    @GetMapping("/web/transactions/create")
+    public String webCreateMovimiento(Model model){
+        model.addAttribute("usuarios", this.movimientoDineroService.getAllNameUsers());
+        model.addAttribute("empresas", this.movimientoDineroService.getAllNameEnterprises());
         return "movimiento/create";
     }
 
-    @PostMapping("/web/movimientos/store")
+    @PostMapping("/web/transactions/store")
     public RedirectView webStoreMovimiento(MovimientoDinero data) {
 
         //---- Verifico si todos los campos estan llenos --------///
         if(data.getConcepto().equals(null) ||data.getConcepto().equals("")){
-            return new RedirectView("/web/movimientos/error");
+            return new RedirectView("/web/transactions/error");
         }
         if(data.getEmpresa().equals(null) || data.getEmpresa().equals("")) {
-            return new RedirectView("/web/movimientos/error");
+            return new RedirectView("/web/transactions/error");
         }
         if(data.getMonto()==0 || data.getMonto() ==0) {
-            return new RedirectView("/web/movimientos/error");
+            return new RedirectView("/web/transactions/error");
         }
 
         if(data.getUsuario().equals(null) || data.getUsuario().equals("")){
-            return new RedirectView("/web/movimientos/error");
+            return new RedirectView("/web/transactions/error");
         }
         if(data.getFecha().equals(null) || data.getFecha().equals("")){
-            return new RedirectView("/web/movimientos/error");
+            return new RedirectView("/web/transactions/error");
         }
 
         MovimientoDinero movimiento = data;
-        Response response = this.movimientoService.createMovimiento(movimiento);
+        Response response = this.movimientoDineroService.createMovimientoDinero(movimiento);
 
         if(response.getCode() == 200){
-            return new RedirectView("/web/movimientos/success");
+            return new RedirectView("/web/transactions/success");
         }
         else{
             return new RedirectView("/web/movimientos/error");
@@ -73,45 +72,15 @@ public class MovimientoDineroWebController {
 
     }
 
-    @GetMapping("web/movimientos/error")
+    @GetMapping("web/transactions/error")
     public String erro(){
         return "movimento/error";
     }
 
-    @GetMapping("web/movimientos/success")
+    @GetMapping("web/transactions/success")
     public String success(){
-        return "movimento/succes";
+        return "movimento/success";
     }
 
 
-
-
-=======
-import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
-import com.example.SistemaGestionIngresosEgresos.services.MovimientoDineroService;
-import com.example.SistemaGestionIngresosEgresos.services.Response;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.ArrayList;
-@Controller
-public class MovimientoDineroWebController {
-    public MovimientoDineroService movimientoDineroService;
-
-    public MovimientoDineroWebController(MovimientoDineroService movimientoDineroService) {
-        this.movimientoDineroService = movimientoDineroService;
-    }
-
-    @RequestMapping("/web/transactions")
-    public ArrayList<MovimientoDinero> webGetMovimientoDinero(){
-        return (ArrayList<MovimientoDinero>) this.movimientoDineroService.getMovimientoDinero();
-    }
-
-    @PostMapping("/web/transactions")
-    public Response apiCreateMovimientoDinero(@RequestBody MovimientoDinero newMovimientoDinero){
-        return this.movimientoDineroService.createMovimientoDinero(newMovimientoDinero);
-    }
->>>>>>> 556a3faa2d26129f4bdd9a0afbbb7fa09b5f9eb1
 }

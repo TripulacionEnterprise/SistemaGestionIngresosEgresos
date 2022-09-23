@@ -1,8 +1,6 @@
 package com.example.SistemaGestionIngresosEgresos.services;
 
-import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
 import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
-import com.example.SistemaGestionIngresosEgresos.repositories.IEmpresaRepository;
 import com.example.SistemaGestionIngresosEgresos.repositories.IMovimientoDineroRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +8,13 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-public class MovimientoService {
+public class MovimientoDineroService {
 
     //----------------- Definicion de dependencias ------------------------//
     //---- Se define las propiedades -------//
     private IMovimientoDineroRepository movimientoRepository;
     //---- Se define el constructor para la inyeccion de dependencias -------//
-    public MovimientoService(IMovimientoDineroRepository repository){
+    public MovimientoDineroService(IMovimientoDineroRepository repository){
         this.movimientoRepository=repository;
     }
 
@@ -24,12 +22,12 @@ public class MovimientoService {
     //------------- Se definen los metodos--------------------///
 
         //----- metodo para obtener listado de empresas
-    public ArrayList<MovimientoDinero> getMovimientos(){
+    public ArrayList<MovimientoDinero> getMovimientoDinero(){
         return (ArrayList<MovimientoDinero>) this.movimientoRepository.findAll();
     }
 
     //----- metodo para obtener empresa por ID------------//
-    public MovimientoDinero getMovimientoById(long Id){
+    public MovimientoDinero getMovimientoDineroById(long Id){
         Optional<MovimientoDinero> existe = this.movimientoRepository.findById(Id);
 
         if(existe.isPresent()){
@@ -41,7 +39,7 @@ public class MovimientoService {
 
     }
 
-    public Response createMovimiento(MovimientoDinero  data){
+    public Response createMovimientoDinero(MovimientoDinero  data){
         Response response =new Response();
 
         try {
@@ -58,7 +56,14 @@ public class MovimientoService {
 
 
     }
+    public ArrayList<String> getAllNameUsers(){
+        ArrayList<String> allNameUsers = this.movimientoRepository.getAllNameUsers();
+        return allNameUsers;
+    }
 
-
+    public ArrayList<String> getAllNameEnterprises(){
+        ArrayList<String> allNameEnterprises = this.movimientoRepository.getAllNameEnterprises();
+        return allNameEnterprises;
+    }
 
 }
