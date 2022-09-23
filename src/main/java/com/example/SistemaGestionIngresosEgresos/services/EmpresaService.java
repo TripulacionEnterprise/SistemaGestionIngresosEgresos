@@ -48,7 +48,6 @@ public class EmpresaService {
         return "Hola mundo";
     }
 
-/*
        //----- metodo para obtener empresa por ID------------//
     public Empresa selectById(long Id){
         Optional<Empresa> existe = this.empresaRepository.findById(Id);
@@ -59,10 +58,6 @@ public class EmpresaService {
         else{
             return null;
         }
-
-    }
-
-
 
     }
 
@@ -98,11 +93,6 @@ public class EmpresaService {
             existe.setTelefono(data.getTelefono());
         }
 
-        /*
-        if(data.getNit()!= null){
-            existe.setNit(data.getNit());
-        }
-
         this.empresaRepository.save(existe);
         response.setCode(200);
         response.setMessage("Empresa actualizada exitosamente");
@@ -127,5 +117,4 @@ public class EmpresaService {
         }
     }
 
- */
 }

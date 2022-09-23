@@ -26,82 +26,24 @@ public class EmpresaApiController {
     public ArrayList<Empresa> apiGetEmpresas() {
         return this.empresaService.getEmpresas();
     }
+    @RequestMapping("/api/enterprises/{id}")
+    public Empresa getEmpresa(@PathVariable int id){
+        return this.empresaService.selectById(id);
+    }
     @PostMapping("/api/enterprises")
     public Response apiCreateEmpresa(@RequestBody Empresa newEmpresa) {
         return this.empresaService.createEmpresa(newEmpresa);
     }
-
-    /*
-    @RequestMapping("enterprises/{id}")
-    public Response getEmpresa(@PathVariable int id){
-        Response response =new Response();
-        response.setMessage("satisfactorio");
-        response.setCode(200);
-        return response;
-    }
-
-    //----- Para las peticiones POST-------//
-    @PostMapping("enterprises")
-    public Response createEmpresa(@RequestBody Empresa request){
-        Response response =new Response();
-        response.setMessage("satisfactorio");
-        response.setCode(200);
-        return response;
-    }
-
     //---- Para preticiones PATCH---------///
-    @PatchMapping("enterprises/{id}")
-    public Response updateEmpresa(@PathVariable int id, @RequestBody Empresa request){
-        Response response =new Response();
-        response.setMessage("satisfactorio");
-        response.setCode(200);
-        return response;
-    }
-
-
-    //---- Para peticiones DELETE----------//
-    @DeleteMapping("enterprises/{id}")
-    public Response deleteEmpresa(@PathVariable int id){
-        Response response =new Response();
-        response.setMessage("satisfactorio");
-        response.setCode(200);
-        return response;
-    }
-
-    /*
-    //------------------ Se define los accespoints -----------------//
-
-        //----- Para las peticiones GET-------//
-    @RequestMapping("enterprises")
-    public ArrayList<Empresa> getEmpresas() {
-        return this.empresaService.selectAll();
-    }
-
-    @RequestMapping("enterprises/{id}")
-    public Empresa getEmpresa(@PathVariable int id){
-        return this.empresaService.selectById(id);
-    }
-
-
-        //----- Para las peticiones POST-------//
-    @PostMapping("enterprises")
-    public Response createEmpresa(@RequestBody Empresa request){
-        return this.empresaService.createEmpresa(request);
-    }
-
-
-        //---- Para preticiones PATCH---------///
-    @PatchMapping("enterprises/{id}")
+    @PatchMapping("/api/enterprises/{id}")
     public Response updateEmpresa(@PathVariable int id, @RequestBody Empresa request){
         return this.empresaService.updateEmpresa(id,request);
     }
 
 
-        //---- Para peticiones DELETE----------//
-    @DeleteMapping("enterprises/{id}")
+    //---- Para peticiones DELETE----------//
+    @DeleteMapping("/api/enterprises/{id}")
     public Response deleteEmpresa(@PathVariable int id){
         return this.empresaService.deleteEmpresaById(id);
     }
-
-     */
 }

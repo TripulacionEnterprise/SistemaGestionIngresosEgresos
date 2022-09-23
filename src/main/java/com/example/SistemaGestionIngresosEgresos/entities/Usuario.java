@@ -27,7 +27,12 @@ public class Usuario {
         @Column(name = "rol")
         private RolEnum rol;
 
-    public Usuario(long id, String correo, String nombre, String telefono, RolEnum rol) {
+    public Usuario() {
+    }
+
+    public Usuario(long id, String correo, String nombre, String telefono
+            , RolEnum rol
+    ) {
         this.id = id;
         this.correo = correo;
         this.nombre = nombre;
@@ -74,5 +79,7 @@ public class Usuario {
     public void setRol(RolEnum rol) {
         this.rol = rol;
     }
+
+
 }
 

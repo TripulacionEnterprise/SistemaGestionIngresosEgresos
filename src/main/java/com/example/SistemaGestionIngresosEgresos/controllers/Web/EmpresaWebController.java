@@ -82,25 +82,4 @@ public class EmpresaWebController {
         return "empresa/success";
     }
 
-/*
-    @GetMapping("enterprises")
-    public String index(Model enterprises){
-        ArrayList<Empresa>  Empresas = empresaService.selectAll();
-        enterprises.addAttribute("enterprises",Empresas);
-        return "Empresa/index";
-    }
-
-    @GetMapping("enterprises")
-    public String empresasregistradas(Model empresas){
-        ArrayList<Empresa> empresasDB = this.empresaService.selectAll();
-        empresas.addAttribute("empresas",empresasDB);
-        return "/Empresa/index";
-    }
-
-
-
-
-
-
- */
 }
