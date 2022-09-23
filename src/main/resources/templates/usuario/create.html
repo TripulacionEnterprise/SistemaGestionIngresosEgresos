@@ -9,7 +9,7 @@
 
             <div class="card w-50 m-auto">
                 <div class="card-body m-5">
-                    <form class="row" action="/usuarios/store" method="post">
+                    <form class="row" action="/web/users/store" method="post">
                         <h1 class=" col-lg-12 h3 mb-3 fw-normal text-center">Nuevo Usuario</h1>
 
                         <div class="mt-3 col-lg-12">
@@ -17,8 +17,15 @@
                             <input type="text" class="form-control" name="nombre" placeholder="Nombre del Usuario">
                         </div>
                         <div class="mt-3 col-lg-12">
-                            <label >Direccion</label>
-                            <input type="text" class="form-control" name="direccion" placeholder="Dirección del Usuario">
+                            <label >Rol</label>
+                            <!--
+                            <input type="text" class="form-control" name="rol" placeholder="Rol del Usuario">
+                            -->
+                            <select class="form-control" name="rol" id="rol">
+                                <option>______________</option>
+                                <option>ADMINISTRADOR</option>
+                                <option>OPERADOR</option>
+                            </select>
                         </div>
 
                         <div class="mt-3 col-lg-12">

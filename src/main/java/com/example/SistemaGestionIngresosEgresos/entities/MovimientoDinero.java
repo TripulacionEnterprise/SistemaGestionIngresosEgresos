@@ -23,6 +23,9 @@ public class MovimientoDinero {
 
     // se definen los constructores
 
+    public MovimientoDinero() {
+    }
+
     public MovimientoDinero(long id, float monto, String concepto, Usuario usuario, Empresa empresa) {
         this.id = id;
         this.monto = monto;

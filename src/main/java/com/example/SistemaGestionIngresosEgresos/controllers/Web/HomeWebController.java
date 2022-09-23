@@ -18,9 +18,7 @@ public class HomeWebController {
     }
 
     @GetMapping("/")
-    public String index(Model modelo){
-        ArrayList<Empresa> empresas = this.empresaService.getEmpresas();
-        modelo.addAttribute("empresas", empresas);
+    public String index(){
         return "/index";
     }
 }

@@ -1,11 +1,26 @@
 package com.example.SistemaGestionIngresosEgresos.controllers.Api;
 
+import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
+import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
+import com.example.SistemaGestionIngresosEgresos.services.MovimientoDineroService;
 import com.example.SistemaGestionIngresosEgresos.services.Response;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RestController
 public class MovimientoDineroApiController {
 
+    private MovimientoDineroService movimientoDineroService;
+
+    public MovimientoDineroApiController(MovimientoDineroService movimientoDineroService) {
+        this.movimientoDineroService = movimientoDineroService;
+    }
+
+    @RequestMapping("/api/transactions")
+    public ArrayList<MovimientoDinero> apiGetMovimientoDinero() {
+        return this.movimientoDineroService.getMovimientoDinero();
+    }
 
     @GetMapping("enterprises/{id}/movements")
     public Response getMovimientoDinero(@PathVariable int id) {
