@@ -1,6 +1,8 @@
 package com.example.SistemaGestionIngresosEgresos.services;
 
+import com.example.SistemaGestionIngresosEgresos.entities.Empresa;
 import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
+import com.example.SistemaGestionIngresosEgresos.entities.Usuario;
 import com.example.SistemaGestionIngresosEgresos.repositories.IMovimientoDineroRepository;
 import org.springframework.stereotype.Service;
 
@@ -39,11 +41,12 @@ public class MovimientoDineroService {
 
     }
 
-    public Response createMovimientoDinero(MovimientoDinero  data){
+    public Response createMovimientoDinero(MovimientoDinero data){
         Response response =new Response();
 
         try {
             this.movimientoRepository.save(data);
+
             response.setCode(200);
             response.setMessage("Movimiento registrado exitosamente");
             return response;
@@ -56,14 +59,36 @@ public class MovimientoDineroService {
 
 
     }
-    public ArrayList<String> getAllNameUsers(){
-        ArrayList<String> allNameUsers = this.movimientoRepository.getAllNameUsers();
+    public ArrayList<Usuario> getAllNameUsers(){
+        ArrayList<Usuario> allNameUsers = this.movimientoRepository.getAllNameUsers();
         return allNameUsers;
     }
 
-    public ArrayList<String> getAllNameEnterprises(){
-        ArrayList<String> allNameEnterprises = this.movimientoRepository.getAllNameEnterprises();
+    public ArrayList<Empresa> getAllNameEnterprises(){
+        ArrayList<Empresa> allNameEnterprises = this.movimientoRepository.getAllNameEnterprises();
         return allNameEnterprises;
+    }
+
+    public Usuario findIdUserByName(String nombre){
+        ArrayList<Usuario> allIdUsers = this.movimientoRepository.findIdUserByName(nombre);
+        if(allIdUsers != null){
+            for (Usuario usuario:
+                    allIdUsers) {
+                return usuario;
+            }
+        }
+        return null;
+    }
+
+    public Empresa findIdEnterpriseByName(String nombre){
+        ArrayList<Empresa> allIdEnterprises = this.movimientoRepository.findIdEnterpriseByName(nombre);
+        if(allIdEnterprises != null){
+            for (Empresa empresa:
+                    allIdEnterprises) {
+                return empresa;
+            }
+        }
+        return null;
     }
 
 }

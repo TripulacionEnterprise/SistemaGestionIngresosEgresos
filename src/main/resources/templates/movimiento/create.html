@@ -30,7 +30,7 @@
                     <label >Usuario</label>
                     <select class="form-control" name="usuario" id="usuario">
                         <option selected>Seleccione usuario</option>
-                        <option th:each = "usuario : ${usuarios}" th:text="${usuario}"></option>
+                        <option th:each = "usuario : ${usuarios}" th:text="${usuario.nombre}"></option>
                     </select>
                 </div>
 
@@ -38,7 +38,7 @@
                     <label >Empresa</label>
                     <select class="form-control" name="empresa" id="empresa">
                         <option selected>Seleccione empresa</option>
-                        <option th:each = "empresa : ${empresas}" th:text="${empresa}"></option>
+                        <option th:each = "empresa : ${empresas}" th:text="${empresa.nombre}"></option>
                     </select>
                 </div>
 

@@ -1,12 +1,15 @@
 package com.example.SistemaGestionIngresosEgresos.controllers.Web;
 
 import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
+import com.example.SistemaGestionIngresosEgresos.services.EmpresaService;
 import com.example.SistemaGestionIngresosEgresos.services.MovimientoDineroService;
 import com.example.SistemaGestionIngresosEgresos.services.Response;
+import com.example.SistemaGestionIngresosEgresos.services.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
@@ -19,10 +22,14 @@ public class MovimientoDineroWebController {
 
     //---- Se define la propiedad para uso del services------//
     private MovimientoDineroService movimientoDineroService;
+    private UsuarioService usuarioService;
+    private EmpresaService empresaService;
 
     //- Se define el constructor para la inyeccion de dependencias-//
-    public MovimientoDineroWebController(MovimientoDineroService service){
+    public MovimientoDineroWebController(MovimientoDineroService service, UsuarioService usuarioService, EmpresaService empresaService){
         this.movimientoDineroService = service;
+        this.usuarioService = usuarioService;
+        this.empresaService = empresaService;
     }
 
     @GetMapping ("/web/transactions")
@@ -34,8 +41,8 @@ public class MovimientoDineroWebController {
 
     @GetMapping("/web/transactions/create")
     public String webCreateMovimiento(Model model){
-        model.addAttribute("usuarios", this.movimientoDineroService.getAllNameUsers());
-        model.addAttribute("empresas", this.movimientoDineroService.getAllNameEnterprises());
+        model.addAttribute("usuarios", this.usuarioService.getUsuarios());
+        model.addAttribute("empresas", this.empresaService.getEmpresas());
         return "movimiento/create";
     }
 
@@ -72,6 +79,10 @@ public class MovimientoDineroWebController {
 
     }
 
+    @RequestMapping("web/mostrarData")
+    public String mostrarData(Model modelo){
+        return "mostrar";
+    }
     @GetMapping("web/transactions/error")
     public String erro(){
         return "movimento/error";
