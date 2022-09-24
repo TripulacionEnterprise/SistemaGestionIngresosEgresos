@@ -1,6 +1,7 @@
 package com.example.SistemaGestionIngresosEgresos.controllers.Web;
 
 import com.example.SistemaGestionIngresosEgresos.entities.MovimientoDinero;
+import com.example.SistemaGestionIngresosEgresos.entities.Usuario;
 import com.example.SistemaGestionIngresosEgresos.services.EmpresaService;
 import com.example.SistemaGestionIngresosEgresos.services.MovimientoDineroService;
 import com.example.SistemaGestionIngresosEgresos.services.Response;
@@ -67,6 +68,9 @@ public class MovimientoDineroWebController {
             return new RedirectView("/web/transactions/error");
         }
 
+
+
+
         MovimientoDinero movimiento = data;
         Response response = this.movimientoDineroService.createMovimientoDinero(movimiento);
 
@@ -77,20 +81,17 @@ public class MovimientoDineroWebController {
             return new RedirectView("/web/movimientos/error");
         }
 
+
     }
 
-    @RequestMapping("web/mostrarData")
-    public String mostrarData(Model modelo){
-        return "mostrar";
-    }
     @GetMapping("web/transactions/error")
-    public String erro(){
-        return "movimento/error";
+    public String error(){
+        return "movimiento/error";
     }
 
     @GetMapping("web/transactions/success")
     public String success(){
-        return "movimento/success";
+        return "movimiento/success";
     }
 
 
