@@ -32,15 +32,16 @@
         <div sec:authorize="!isAuthenticated()">
           <a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-3">Ir a la Aplicación</a>
         </div>
+        <div class="col-lg-6 mx-auto">
+          <div sec:authorize="isAuthenticated()">
+            <p class="lead mb-4">Está logeado!</p>
+            <a href="/main" class="btn btn-primary btn-lg px-4 gap-3">Ir a la Aplicación</a>
+            <a th:href="@{/logout}" class="btn btn-secondary btn-lg px-4 gap-3">Terminar Sesión</a>
+          </div>
+        </div>
       </div>
     </div>
   </main>
-
-    <div sec:authorize="isAuthenticated()">
-      <p>You are logged in!</p>
-      <a href="/main">Ir a la Aplicación</a>
-      <a th:href="@{/logout}">Log Out</a>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="/vendor/jquery/jquery.min.js"></script>
