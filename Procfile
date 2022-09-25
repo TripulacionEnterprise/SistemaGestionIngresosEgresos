@@ -1,0 +1,1 @@
+web: java -Oserver.port=$PORT -jar target/SistemaGestionIngresosEgresos-0.0.1-SNAPSHOT.jar
