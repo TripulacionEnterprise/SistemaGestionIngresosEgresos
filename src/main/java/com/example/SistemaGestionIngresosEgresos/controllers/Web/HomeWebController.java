@@ -20,16 +20,10 @@ public class HomeWebController {
 
     @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
-        if (principal != null) {
-            //model.addAttribute("profile", principal.getClaims());
-        }
         return "/index";
     }
     @GetMapping("/main")
     public String main(Model model, @AuthenticationPrincipal OidcUser principal) {
-        if (principal != null) {
-            model.addAttribute("profile", principal.getClaims());
-        }
         return "/main";
     }
 }
