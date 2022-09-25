@@ -114,30 +114,31 @@
                     <ul class="navbar-nav ml-auto" >
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <div sec:authorize="isAuthenticated()">
-                                    <img th:src="${profile.get('picture')}" th:attr="alt=${profile.get('name')}"/>
-                                    <h2 th:text="${profile.get('name')}"></h2>
-                                    <p th:text="${profile.get('email')}"></p>
-                                    <a th:href="@{/logout}">Log Out</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <!--
+                                            <p>
+                                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${profile.get('name')}"></span>
+                                                <!--
+                                            <p>
+                                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${profile.get('email')}"></span>
+                                            </p>
+                                            <img class="img-profile rounded-circle"  th:src="${profile.get('picture')}" th:attr="alt=${profile.get('name')}"/>
+                                            <a class="mr-2 d-none d-lg-inline text-gray-600 small" th:href="@{/logout}">Terminar Sesión</a>
+                                        -->
+                                    </a>
                                 </div>
-                                <!--
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                    <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
-                                </a>
-                                -->
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
 
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Logout
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400">
+                                        Terminar Sesión</i>
                                     </a>
                                 </div>
                             </li>

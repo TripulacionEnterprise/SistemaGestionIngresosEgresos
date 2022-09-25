@@ -30,7 +30,7 @@
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">Aplicación para administrar movimientos de dinero</p>
         <div sec:authorize="!isAuthenticated()">
-          <a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-3">Ir a la Aplicación</a>
+          <a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-3">Login</a>
         </div>
         <div class="col-lg-6 mx-auto">
           <div sec:authorize="isAuthenticated()">
