@@ -52,20 +52,20 @@ public class MovimientoDineroWebController {
 
         //---- Verifico si todos los campos estan llenos --------///
         if(data.getConcepto().equals(null) ||data.getConcepto().equals("")){
-            return new RedirectView("/web/transactions/error");
+            return new RedirectView("web/transactions/error");
         }
         if(data.getEmpresa().equals(null) || data.getEmpresa().equals("")) {
-            return new RedirectView("/web/transactions/error");
+            return new RedirectView("web/transactions/error");
         }
         if(data.getMonto()==0 || data.getMonto() ==0) {
-            return new RedirectView("/web/transactions/error");
+            return new RedirectView("web/transactions/error");
         }
 
         if(data.getUsuario().equals(null) || data.getUsuario().equals("")){
-            return new RedirectView("/web/transactions/error");
+            return new RedirectView("web/transactions/error");
         }
         if(data.getFecha().equals(null) || data.getFecha().equals("")){
-            return new RedirectView("/web/transactions/error");
+            return new RedirectView("web/transactions/error");
         }
 
 
@@ -75,10 +75,10 @@ public class MovimientoDineroWebController {
         Response response = this.movimientoDineroService.createMovimientoDinero(movimiento);
 
         if(response.getCode() == 200){
-            return new RedirectView("/web/transactions/success");
+            return new RedirectView("web/transactions/success");
         }
         else{
-            return new RedirectView("/web/movimientos/error");
+            return new RedirectView("web/movimientos/error");
         }
 
 

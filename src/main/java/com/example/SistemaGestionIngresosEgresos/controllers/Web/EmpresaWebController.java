@@ -47,28 +47,28 @@ public class EmpresaWebController {
 
         //---- Verifico si todos los campos estan llenos --------///
         if(newEmpresa.getNombre().equals(null) || newEmpresa.getNombre().equals("")){
-            return new RedirectView("/web/enterprises/error");
+            return new RedirectView("web/enterprises/error");
         }
         if(newEmpresa.getTelefono().equals(null) || newEmpresa.getTelefono().equals("")){
-            return new RedirectView("/web/enterprises/error");
+            return new RedirectView("web/enterprises/error");
         }
 
         if(newEmpresa.getDireccion().equals(null) || newEmpresa.getDireccion().equals("")){
-            return new RedirectView("/web/enterprises/error");
+            return new RedirectView("web/enterprises/error");
         }
 
         if(newEmpresa.getCorreo().equals(null) || newEmpresa.getCorreo().equals("")){
-            return new RedirectView("/web/enterprises/error");
+            return new RedirectView("web/enterprises/error");
         }
 
         Empresa empresa = newEmpresa;
         Response response = this.empresaService.createEmpresa(empresa);
 
         if(response.getCode() == 200){
-            return new RedirectView("/web/enterprises/success");
+            return new RedirectView("web/enterprises/success");
         }
         else{
-            return new RedirectView("/web/enterprises/error");
+            return new RedirectView("web/enterprises/error");
         }
     }
 

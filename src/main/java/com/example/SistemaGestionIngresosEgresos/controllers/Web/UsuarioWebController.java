@@ -36,28 +36,28 @@ public class UsuarioWebController {
 
         //---- Verifico si todos los campos estan llenos --------///
         if(newUsuario.getNombre().equals(null) || newUsuario.getNombre().equals("")){
-            return new RedirectView("/web/users/error");
+            return new RedirectView("web/users/error");
         }
         if(newUsuario.getTelefono().equals(null) || newUsuario.getTelefono().equals("")){
-            return new RedirectView("/web/users/error");
+            return new RedirectView("web/users/error");
         }
 
         if(newUsuario.getRol().equals(null) || newUsuario.getRol().equals("")){
-            return new RedirectView("/web/users/error");
+            return new RedirectView("web/users/error");
         }
 
         if(newUsuario.getCorreo().equals(null) || newUsuario.getCorreo().equals("")){
-            return new RedirectView("/web/users/error");
+            return new RedirectView("web/users/error");
         }
 
         Usuario usuario = newUsuario;
         Response response = this.usuarioService.createUsuario(usuario);
 
         if(response.getCode() == 200){
-            return new RedirectView("/web/users/success");
+            return new RedirectView("web/users/success");
         }
         else{
-            return new RedirectView("/web/users/error");
+            return new RedirectView("web/users/error");
         }
     }
 
