@@ -28,7 +28,7 @@ public class EmpresaWebController {
 
     //--------- Metodo para mostrar la lista de empresas-----///////
 
-    @RequestMapping("/web/enterprises")
+    @RequestMapping("web/enterprises")
     public String webGetEmpresas(Model modelo){
         ArrayList<Empresa> empresas = this.empresaService.getEmpresas();
         modelo.addAttribute("empresas", empresas);
@@ -37,12 +37,12 @@ public class EmpresaWebController {
     //-------Creacion de registros de empresa ------------//
 
     //------- Metodo para crear una empresa--Retorna vista---------//
-    @GetMapping("/web/enterprises/create")
+    @GetMapping("web/enterprises/create")
     public String webCreateEmpresa(){
         return "empresa/create";
     }
     //------ Metodo para guardar una empresa---Retorna una Respuesta------///
-    @PostMapping("/web/enterprises/store")
+    @PostMapping("web/enterprises/store")
     public RedirectView webStoreEmpresa(Empresa newEmpresa){
 
         //---- Verifico si todos los campos estan llenos --------///
@@ -72,12 +72,12 @@ public class EmpresaWebController {
         }
     }
 
-    @GetMapping("/web/enterprises/error")
+    @GetMapping("web/enterprises/error")
     public String error(){
         return "empresa/error";
     }
 
-    @GetMapping("/web/enterprises/success")
+    @GetMapping("web/enterprises/success")
     public String success(){
         return "empresa/success";
     }

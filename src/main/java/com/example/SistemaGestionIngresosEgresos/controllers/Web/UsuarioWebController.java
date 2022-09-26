@@ -20,18 +20,18 @@ public class UsuarioWebController {
         this.usuarioService = service;
     }
 
-    @RequestMapping("/web/users")
+    @RequestMapping("web/users")
     public String webGetUsuarios(@NotNull Model modelo){
         ArrayList<Usuario> usuarios = this.usuarioService.getUsuarios();
         modelo.addAttribute("usuarios", usuarios);
         return "usuario/index";
     }
-    @GetMapping("/web/users/create")
+    @GetMapping("web/users/create")
     public String webCreateUsuario(){
         return "usuario/create";
     }
 
-    @PostMapping("/web/users/store")
+    @PostMapping("web/users/store")
     public RedirectView webStoreUsuario(Usuario newUsuario){
 
         //---- Verifico si todos los campos estan llenos --------///
@@ -61,12 +61,12 @@ public class UsuarioWebController {
         }
     }
 
-    @GetMapping("/web/users/error")
+    @GetMapping("web/users/error")
     public String error(){
         return "usuario/error";
     }
 
-    @GetMapping("/web/users/success")
+    @GetMapping("web/users/success")
     public String success(){
         return "usuario/success";
     }

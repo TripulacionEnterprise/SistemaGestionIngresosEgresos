@@ -33,21 +33,21 @@ public class MovimientoDineroWebController {
         this.empresaService = empresaService;
     }
 
-    @GetMapping ("/web/transactions")
+    @GetMapping ("web/transactions")
     public String index(Model model){
         model.addAttribute("movimientos",this.movimientoDineroService.getMovimientoDinero());
         return "movimiento/index";
     }
 
 
-    @GetMapping("/web/transactions/create")
+    @GetMapping("web/transactions/create")
     public String webCreateMovimiento(Model model){
         model.addAttribute("usuarios", this.usuarioService.getUsuarios());
         model.addAttribute("empresas", this.empresaService.getEmpresas());
         return "movimiento/create";
     }
 
-    @PostMapping("/web/transactions/store")
+    @PostMapping("web/transactions/store")
     public RedirectView webStoreMovimiento(MovimientoDinero data) {
 
         //---- Verifico si todos los campos estan llenos --------///
