@@ -12,6 +12,9 @@ public class UsuarioService {
 
     private IUsuarioRepository usuarioRepository;
 
+    public UsuarioService() {
+    }
+
     public UsuarioService(IUsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
@@ -34,4 +37,10 @@ public class UsuarioService {
             return response;
         }
     }
+
+    public Usuario selectByUserName(String username){
+        Usuario usuario = this.usuarioRepository.findUserByUserName(username);
+        return usuario;
+    }
+
 }
