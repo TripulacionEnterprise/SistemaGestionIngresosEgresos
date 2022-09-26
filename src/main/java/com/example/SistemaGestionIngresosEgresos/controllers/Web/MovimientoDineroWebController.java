@@ -21,7 +21,7 @@ public class MovimientoDineroWebController {
 
     //----------------- Definicion de dependencias ------------------------//
 
-    //---- Se define la propiedad para uso del services------//
+    //---- Se define la propiedad para uso del services--------//
     private MovimientoDineroService movimientoDineroService;
     private UsuarioService usuarioService;
     private EmpresaService empresaService;
