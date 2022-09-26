@@ -18,7 +18,7 @@ public class HomeWebController {
         this.empresaService = empresaService;
     }
 
-    @GetMapping("")
+    @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
         return "/index";
     }
